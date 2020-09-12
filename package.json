@@ -1,0 +1,29 @@
+{
+  "name": "musikkapelle-markelsheim",
+  "description": "Offizielle Seite der Musikkapelle Markelsheim",
+  "version": "1.0.0",
+  "author": "dreitagebart <stefan.buechold@gmail.com>",
+  "keywords": [
+    "Musikkapelle",
+    "Markelsheim"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dreitagebart/musikkapelle-markelsheim"
+  },
+  "bugs": {
+    "url": "https://github.com/dreitagebart/musikkapelle-markelsheim/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "yarn dev",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.1"
+  }
+}
