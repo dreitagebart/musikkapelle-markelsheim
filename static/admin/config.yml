@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: dreitagebart/musikkapelle-markelsheim
+
+site_url: https://www.musikkapelle-markelsheim.de
+publish_mode: editorial_workflow
+media_folder: content/assets
+public_folder: ../assets
+
+collections:
+  - name: events
+    label: Termine
+    folder: content/events
+    create: true
+    fields:
+      - { name: path, label: Slug }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
