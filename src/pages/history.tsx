@@ -1,12 +1,13 @@
 import React from "react"
+import { MainLayout } from "../layouts"
 
 interface Props {}
 
 const Page: React.FC<Props> = () => {
   return (
-    <div>
+    <MainLayout title="Geschichte">
       <h1>Geschichte</h1>
-    </div>
+    </MainLayout>
   )
 }
 

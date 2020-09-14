@@ -1,7 +1,6 @@
 import React from "react"
 
 import { MainLayout } from "../layouts"
-import { SEO } from "../components"
 
 const NotFoundPage: React.FC = () => (
   <MainLayout title="Seite wurde nicht gefunden">

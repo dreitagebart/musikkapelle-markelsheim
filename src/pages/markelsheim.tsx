@@ -6,8 +6,8 @@ interface Props {}
 
 const Page: React.FC<Props> = () => {
   return (
-    <MainLayout title="Kontakt">
-      <h1>Kontakt</h1>
+    <MainLayout title="Markelsheim">
+      <h1>Markelsheim</h1>
     </MainLayout>
   )
 }

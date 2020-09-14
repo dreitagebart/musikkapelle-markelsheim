@@ -14,7 +14,6 @@ interface Props extends Partial<SEOProps> {}
 
 const _Wrapper = styled.div`
   position: relative;
-  border: 1px solid red;
   height: 100vh;
 `
 

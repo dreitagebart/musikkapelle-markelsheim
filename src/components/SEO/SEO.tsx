@@ -34,7 +34,7 @@ export const SEO: React.FC<Partial<SEOProps>> = ({
   let siteTitle = site.siteMetadata.title
 
   if (title) {
-    siteTitle += ` - ${title}`
+    siteTitle = `${title} - ${siteTitle}`
   }
 
   return (

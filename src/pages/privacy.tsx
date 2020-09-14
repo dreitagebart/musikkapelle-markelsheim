@@ -1,12 +1,14 @@
 import React from "react"
 
+import { MainLayout } from "../layouts"
+
 interface Props {}
 
 const Page: React.FC<Props> = () => {
   return (
-    <div>
-      <h1>Privatsphäre</h1>
-    </div>
+    <MainLayout title="Datenschutz">
+      <h1>Datenschutz</h1>
+    </MainLayout>
   )
 }
 

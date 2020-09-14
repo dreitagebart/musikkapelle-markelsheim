@@ -8,7 +8,11 @@ interface Props {
 }
 
 const Page: React.FC<Props> = ({ data, ...props }) => {
-  return <MainLayout title="Termine">Ich bin die Termine Seite</MainLayout>
+  return (
+    <MainLayout title="Termine">
+      <h1>Termine</h1>
+    </MainLayout>
+  )
 }
 
 export default Page
