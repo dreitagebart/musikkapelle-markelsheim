@@ -1,4 +1,6 @@
 import React from "react"
+
+import { Heading } from "../components"
 import { MainLayout } from "../layouts"
 
 interface Props {}
@@ -6,7 +8,7 @@ interface Props {}
 const Page: React.FC<Props> = () => {
   return (
     <MainLayout title="Mitglied werden">
-      <h1>Mitglieder</h1>
+      <Heading>Mitglied werden</Heading>
     </MainLayout>
   )
 }

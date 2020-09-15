@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react"
 import styled, { css } from "styled-components"
 import { Box } from "@dreitagebart/box"
 import { Link } from "gatsby"
+import { LinkGetProps } from "@reach/router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 
@@ -11,6 +12,12 @@ interface Props {}
 
 interface _MenuProps {
   show: boolean
+}
+
+const activeStyle: React.CSSProperties = { fontWeight: "bold" }
+
+const isPartiallyActive = ({ isPartiallyCurrent }: LinkGetProps) => {
+  return isPartiallyCurrent ? { style: activeStyle } : {}
 }
 
 const _Trigger = styled.div`
@@ -59,9 +66,7 @@ const _Menu = styled(Box)<_MenuProps>`
   }
 `
 
-const _Item = styled(Link).attrs(() => ({
-  activeStyle: { fontWeight: "bold" }
-}))`
+const _Item = styled(Link)`
   transition: all 300ms ease-in;
   padding: 8px;
   border-radius: 4px;
@@ -73,7 +78,7 @@ const _Item = styled(Link).attrs(() => ({
 
 const _Burger = styled(FontAwesomeIcon)``
 
-export const Menu: React.FC<Props> = () => {
+export const MainMenu: React.FC<Props> = () => {
   const [toggle, setToggle] = useState(false)
 
   return (
@@ -82,25 +87,25 @@ export const Menu: React.FC<Props> = () => {
         Navigation <_Burger icon={faBars}></_Burger>
       </_Trigger>
       <_Menu className="mobileMenu" direction="row" gutter={8} show={toggle}>
-        <_Item to="/club">
+        <_Item to="/club" getProps={isPartiallyActive}>
           <Hover>Verein</Hover>
         </_Item>
-        <_Item to="/events">
+        <_Item to="/events" getProps={isPartiallyActive}>
           <Hover>Termine</Hover>
         </_Item>
-        <_Item to="/history">
+        <_Item to="/history" getProps={isPartiallyActive}>
           <Hover>Geschichte</Hover>
         </_Item>
-        <_Item to="/images">
+        <_Item to="/images" getProps={isPartiallyActive}>
           <Hover>Bilder</Hover>
         </_Item>
-        <_Item to="/markelsheim">
+        <_Item to="/markelsheim" getProps={isPartiallyActive}>
           <Hover>Markelsheim</Hover>
         </_Item>
-        <_Item to="/links">
+        <_Item to="/links" getProps={isPartiallyActive}>
           <Hover>Links</Hover>
         </_Item>
-        <_Item to="/contact">
+        <_Item to="/contact" getProps={isPartiallyActive}>
           <Hover>Kontakt</Hover>
         </_Item>
       </_Menu>

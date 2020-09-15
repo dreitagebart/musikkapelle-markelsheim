@@ -13,6 +13,7 @@ const _Footer = styled(Box)`
   right: 0;
   bottom: 0;
   color: #efefef;
+  height: 120px;
 
   & a {
     transition: color 300ms ease-in;

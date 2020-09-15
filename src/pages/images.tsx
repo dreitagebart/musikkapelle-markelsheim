@@ -1,15 +1,14 @@
 import React from "react"
 
+import { Heading } from "../components"
 import { MainLayout } from "../layouts"
 
 interface Props {}
 
 const Page: React.FC<Props> = () => {
   return (
-    <MainLayout title="Markelsheim">
-      <h1>Markelsheim</h1>
+    <MainLayout title="Bilder">
+      <Heading>Bilder</Heading>
     </MainLayout>
   )
 }
-
-export default Page

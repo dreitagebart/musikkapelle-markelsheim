@@ -16,7 +16,13 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-root-import",
-    "gatsby-plugin-offline",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/assets/images`,
+        name: "images"
+      }
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -72,6 +78,7 @@ module.exports = {
         display: "minimal-ui",
         icon: "src/assets/images/favicon.png"
       }
-    }
+    },
+    "gatsby-plugin-offline"
   ]
 }

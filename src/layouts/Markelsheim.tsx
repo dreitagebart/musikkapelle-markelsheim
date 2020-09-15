@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import {
   Header,
+  MarkelsheimMenu,
   Content,
   Footer,
   SEO,
@@ -17,12 +18,13 @@ const _Wrapper = styled.div`
   min-height: 100vh;
 `
 
-export const MainLayout: React.FC<Props> = ({ children, ...seo }) => {
+export const MarkelsheimLayout: React.FC<Props> = ({ children, ...seo }) => {
   return (
     <_Wrapper>
       <GlobalStyle></GlobalStyle>
       <SEO {...seo}></SEO>
       <Header></Header>
+      <MarkelsheimMenu></MarkelsheimMenu>
       <Content>{children}</Content>
       <Footer></Footer>
     </_Wrapper>

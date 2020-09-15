@@ -14,7 +14,16 @@ collections:
     create: true
     fields:
       - { name: path, label: Slug }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: description, label: Description }
-      - { name: body, label: Body, widget: markdown }
+      - { name: title, label: Titel }
+      - { name: date, label: Datum, widget: datetime }
+      - { name: location, label: Ort }
+
+  - name: front
+    label: Startseite
+    folder: content/front
+    create: true
+    fields:
+      - { name: path, label: Slug }
+      - { name: date, label: Datum, widget: date }
+      - { name: title, label: Titel }
+      - { name: body, label: Text, widget: markdown }

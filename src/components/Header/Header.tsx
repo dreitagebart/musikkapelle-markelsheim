@@ -1,27 +1,40 @@
 import React from "react"
 import styled from "styled-components"
+import Image from "gatsby-image"
 import { Box } from "@dreitagebart/box"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 
-import logo from "../../assets/images/logo.png"
 import { LeafLeft, LeafRight } from "../Leafs"
-import { Menu } from "../Menu"
+import { MainMenu } from "../Menu"
 
 interface Props {}
 
 const _Header = styled(Box)``
 
-const _Logo = styled.img``
-
 export const Header: React.FC<Props> = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed(width: 200, height: 223) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <_Header direction="column" align="center" padding={{ top: 20 }}>
       <LeafLeft></LeafLeft>
       <LeafRight></LeafRight>
       <Link to="/">
-        <_Logo src={logo} alt="Logo Musikkapelle Markelsheim"></_Logo>
+        <Image
+          fixed={data.file.childImageSharp.fixed}
+          alt="Logo Musikkapelle Markelsheim"
+        ></Image>
       </Link>
-      <Menu></Menu>
+      <MainMenu></MainMenu>
     </_Header>
   )
 }

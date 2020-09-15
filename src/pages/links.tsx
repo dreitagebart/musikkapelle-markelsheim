@@ -1,5 +1,6 @@
 import React from "react"
 
+import { Heading } from "../components"
 import { MainLayout } from "../layouts"
 
 interface Props {}
@@ -7,7 +8,7 @@ interface Props {}
 const Page: React.FC<Props> = () => {
   return (
     <MainLayout title="Links">
-      <h1>Links</h1>
+      <Heading>Links</Heading>
     </MainLayout>
   )
 }

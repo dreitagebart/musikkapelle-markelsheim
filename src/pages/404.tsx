@@ -1,11 +1,14 @@
 import React from "react"
 
+import { Heading, Paragraph } from "../components"
 import { MainLayout } from "../layouts"
 
 const NotFoundPage: React.FC = () => (
   <MainLayout title="Seite wurde nicht gefunden">
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <Heading>NOT FOUND</Heading>
+    <Paragraph>
+      You just hit a route that doesn&#39;t exist... the sadness.
+    </Paragraph>
   </MainLayout>
 )
 

@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import { MainLayout } from "../layouts"
+import { Heading } from "../components"
 
 interface Props {
   data: any
@@ -10,7 +11,10 @@ interface Props {
 const Page: React.FC<Props> = ({ data, ...props }) => {
   return (
     <MainLayout title="Termine">
-      <h1>Termine</h1>
+      <Heading>Termine</Heading>
+      {data.allMdx.edges.map((event: any) => {
+        return <h3 key={event.node.id}>{event.node.frontmatter.title}</h3>
+      })}
     </MainLayout>
   )
 }

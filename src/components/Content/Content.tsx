@@ -6,7 +6,7 @@ interface Props {}
 const _Content = styled.div`
   max-width: 960px;
   margin: 0 auto;
-  padding: 20px 40px 0 40px;
+  padding: 20px 40px 140px 40px;
   width: 100%;
   line-height: 1.5;
 

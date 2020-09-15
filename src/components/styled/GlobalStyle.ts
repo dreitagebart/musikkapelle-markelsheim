@@ -11,12 +11,13 @@ ${normalize()}
 body {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  font-weight: lighter;
 }
 
 p {
