@@ -1,15 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import Image from "gatsby-image"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import { Heading } from "../../components"
 import { ClubLayout } from "../../layouts"
 import { Box } from "@dreitagebart/box"
 
-interface Props {
-  data: any
-}
+interface Props {}
 
 const _Title = styled.div`
   font-weight: bold;
@@ -29,14 +27,27 @@ const _Item = styled.li`
   padding: 0;
 `
 
-const Page: React.FC<Props> = ({ data }) => {
+const Page: React.FC<Props> = () => {
+  const data = useStaticQuery(graphql`
+    query Images {
+      image: file(relativePath: { eq: "squad.jpg" }) {
+        id
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <ClubLayout title="Unsere Musikkapelle">
       <Heading>Unsere Musikkapelle</Heading>
       <Box align="center" justify="center" width="100%">
         <Image
-          fadeIn
-          fixed={data.file.childImageSharp.fixed}
+          fluid={data.image.childImageSharp.fluid}
+          style={{ width: "100%", height: "auto", maxWidth: 800 }}
           alt="Gruppenbild auf dem Weinberg Markelsheim"
         />
         <Box align="center" justify="center" margin={{ vertical: 20 }}>
@@ -159,15 +170,3 @@ const Page: React.FC<Props> = ({ data }) => {
 }
 
 export default Page
-
-export const query = graphql`
-  query {
-    file(relativePath: { eq: "mkm01.jpeg" }) {
-      childImageSharp {
-        fixed(width: 500, height: 300) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`
