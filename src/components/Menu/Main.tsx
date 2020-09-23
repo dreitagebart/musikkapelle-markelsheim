@@ -1,12 +1,10 @@
-import React, { Fragment, useState } from "react"
+import React, { useState } from "react"
 import styled, { css } from "styled-components"
 import { Box } from "@dreitagebart/box"
 import { Link } from "gatsby"
 import { LinkGetProps } from "@reach/router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
-
-import { Hover } from "../Hover"
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons"
 
 interface Props {}
 
@@ -23,6 +21,7 @@ const isPartiallyActive = ({ isPartiallyCurrent }: LinkGetProps) => {
 const _Trigger = styled.div`
   display: none;
   cursor: pointer;
+  font-size: 14px;
   text-transform: uppercase;
 
   @media only screen and (max-width: 680px) {
@@ -36,11 +35,15 @@ const _Wrapper = styled(Box)`
   @media only screen and (max-width: 680px) {
     & {
       flex-direction: column;
+      align-items: center;
+      width: 100%;
     }
 
     & > .mobileMenu {
+      padding-top: 1em;
       flex-direction: column;
-      border: 1px solid red;
+      align-items: center;
+      width: 100%;
     }
   }
 `
@@ -48,11 +51,12 @@ const _Wrapper = styled(Box)`
 const _Menu = styled(Box)<_MenuProps>`
   @media only screen and (max-width: 680px) {
     & {
-      border: 1px solid red;
-      transition: all 300ms ease-in;
+      overflow: hidden;
+      transition: all 300ms ease-out;
       ${({ show }) =>
         show
           ? css`
+              height: auto;
               opacity: 1;
               visibility: visible;
               transform: translateY(0);
@@ -61,6 +65,7 @@ const _Menu = styled(Box)<_MenuProps>`
               opacity: 0;
               visibility: hidden;
               transform: translateY(-100%);
+              height: 0;
             `}
     }
   }
@@ -68,7 +73,7 @@ const _Menu = styled(Box)<_MenuProps>`
 
 const _Item = styled(Link)`
   transition: all 300ms ease-in;
-  padding: 8px;
+  padding: 12px;
   border-radius: 4px;
 
   &:hover {
@@ -84,29 +89,30 @@ export const MainMenu: React.FC<Props> = () => {
   return (
     <_Wrapper padding={{ top: 20 }}>
       <_Trigger onClick={() => setToggle(!toggle)}>
-        Navigation <_Burger icon={faBars}></_Burger>
+        Navigation{" "}
+        <_Burger icon={toggle ? faChevronUp : faChevronDown}></_Burger>
       </_Trigger>
       <_Menu className="mobileMenu" direction="row" gutter={8} show={toggle}>
         <_Item to="/club" getProps={isPartiallyActive}>
-          <Hover>Verein</Hover>
+          Verein
         </_Item>
         <_Item to="/events" getProps={isPartiallyActive}>
-          <Hover>Termine</Hover>
+          Termine
         </_Item>
         <_Item to="/history" getProps={isPartiallyActive}>
-          <Hover>Geschichte</Hover>
+          Geschichte
         </_Item>
         <_Item to="/images" getProps={isPartiallyActive}>
-          <Hover>Bilder</Hover>
+          Bilder
         </_Item>
         <_Item to="/markelsheim" getProps={isPartiallyActive}>
-          <Hover>Markelsheim</Hover>
+          Markelsheim
         </_Item>
         <_Item to="/links" getProps={isPartiallyActive}>
-          <Hover>Links</Hover>
+          Links
         </_Item>
         <_Item to="/contact" getProps={isPartiallyActive}>
-          <Hover>Kontakt</Hover>
+          Kontakt
         </_Item>
       </_Menu>
     </_Wrapper>

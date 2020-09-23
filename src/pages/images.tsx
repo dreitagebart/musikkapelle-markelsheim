@@ -1,6 +1,15 @@
 import React from "react"
 import ImageGallery from "react-image-gallery"
 import { graphql, useStaticQuery } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faChevronLeft,
+  faChevronRight,
+  faCompress,
+  faExpand,
+  faPause,
+  faPlay
+} from "@fortawesome/free-solid-svg-icons"
 
 import { Heading } from "../components"
 import { MainLayout } from "../layouts"
@@ -14,8 +23,13 @@ const Page: React.FC<Props> = () => {
         edges {
           node {
             childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid
+              thumb: fluid(quality: 80, maxWidth: 200) {
+                base64
+                src
+              }
+              full: fluid(quality: 100, maxWidth: 800) {
+                base64
+                src
               }
             }
           }
@@ -23,12 +37,19 @@ const Page: React.FC<Props> = () => {
       }
     }
   `)
-  console.log(data)
+
+  const items = data.gallery.edges.map((img: any) => {
+    return {
+      original: img.node.childImageSharp.full.src,
+      thumbnail: img.node.childImageSharp.thumb.src
+    }
+  })
+  console.log(items)
   return (
     <MainLayout title="Bilder">
       <Heading>Bilder</Heading>
       <ImageGallery
-        items={[]}
+        items={items}
         autoPlay
         renderLeftNav={(onClick, isDisabled) => (
           <button
@@ -36,7 +57,7 @@ const Page: React.FC<Props> = () => {
             className="image-gallery-left-nav"
             onClick={onClick}
           >
-            <i className="fas fa-chevron-left" />
+            <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
           </button>
         )}
         renderRightNav={(onClick, isDisabled) => (
@@ -45,7 +66,7 @@ const Page: React.FC<Props> = () => {
             className="image-gallery-right-nav"
             onClick={onClick}
           >
-            <i className="fas fa-chevron-right" />
+            <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
           </button>
         )}
         renderPlayPauseButton={(onClick, isPlaying) => (
@@ -54,9 +75,9 @@ const Page: React.FC<Props> = () => {
             onClick={onClick}
           >
             {isPlaying ? (
-              <i className="fas fa-pause" />
+              <FontAwesomeIcon icon={faPause}></FontAwesomeIcon>
             ) : (
-              <i className="fas fa-play" />
+              <FontAwesomeIcon icon={faPlay}></FontAwesomeIcon>
             )}
           </button>
         )}
@@ -68,9 +89,9 @@ const Page: React.FC<Props> = () => {
             onClick={onClick}
           >
             {isFullscreen ? (
-              <i className="fas fa-compress" />
+              <FontAwesomeIcon icon={faCompress}></FontAwesomeIcon>
             ) : (
-              <i className="fas fa-expand" />
+              <FontAwesomeIcon icon={faExpand}></FontAwesomeIcon>
             )}
           </button>
         )}

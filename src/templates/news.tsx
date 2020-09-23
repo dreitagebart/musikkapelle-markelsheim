@@ -37,14 +37,14 @@ const Template: React.FC<Props> = ({ data, pageContext }) => {
       >
         <li>
           {previous && (
-            <Link to={`/event${previous.fields.slug}`} rel="prev">
+            <Link to={`/news${previous.fields.slug}`} rel="prev">
               ← {previous.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
-            <Link to={`/event${next.fields.slug}`} rel="next">
+            <Link to={`/news${next.fields.slug}`} rel="next">
               {next.frontmatter.title} →
             </Link>
           )}
@@ -57,7 +57,7 @@ const Template: React.FC<Props> = ({ data, pageContext }) => {
 export default Template
 
 export const pageQuery = graphql`
-  query Event($slug: String!) {
+  query News($slug: String!) {
     site {
       siteMetadata {
         title

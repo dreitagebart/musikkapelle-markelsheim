@@ -5,11 +5,18 @@ interface Props extends HTMLAttributes<HTMLLabelElement> {}
 
 const _Label = styled.label`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
   cursor: pointer;
-  border: 1px solid red;
+
+  @media only screen and (max-width: 680px) {
+    & {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
 `
 
 export const Label: React.FC<Props> = ({ ...props }) => {

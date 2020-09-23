@@ -8,7 +8,12 @@ const _Field = styled(Box)``
 
 export const Field: React.FC<Props> = ({ children }) => {
   return (
-    <_Field direction="row" justify="between">
+    <_Field
+      width="100%"
+      direction="row"
+      justify="between"
+      padding={{ bottom: "1em" }}
+    >
       {children}
     </_Field>
   )

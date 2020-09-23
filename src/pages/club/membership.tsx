@@ -22,7 +22,7 @@ const Page: React.FC<Props> = () => {
       </Paragraph>
       <Paragraph>
         Du spielst noch kein Instrument, aber du möchtest gerne eines erlernen?
-        Hier gibt es in unserem Verein auch viele Möglichkeiten!! Sprich uns
+        Hier gibt es in unserem Verein auch viele Möglichkeiten. Sprich uns
         einfach an!
       </Paragraph>
       <Paragraph>

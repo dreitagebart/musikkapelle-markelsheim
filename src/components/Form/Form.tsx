@@ -5,7 +5,7 @@ interface Props extends HTMLAttributes<HTMLFormElement> {}
 
 const _Form = styled.form`
   width: 100%;
-  border: 1px solid green;
+  margin-top: 1em;
 `
 
 export const Form: React.FC<Props> = ({ ...props }) => {

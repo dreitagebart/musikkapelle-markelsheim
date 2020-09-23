@@ -62,6 +62,7 @@ const Page: React.FC<Props> = () => {
         Schwarzrieslingstraße 3<br></br>
         97980&nbsp;Markelsheim
       </Paragraph>
+      <br></br>
       <Paragraph>
         <Text bold>
           Wenn du mit uns Kontakt aufnehmen möchtest, dann verwende doch bitte
@@ -72,13 +73,11 @@ const Page: React.FC<Props> = () => {
         <Field>
           <Label>
             <Box>Vor- und Zuname</Box>
-            <Box>
-              <TextInput
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-              ></TextInput>
-            </Box>
+            <TextInput
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+            ></TextInput>
           </Label>
         </Field>
         <Field>

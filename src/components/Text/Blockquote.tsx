@@ -4,7 +4,7 @@ import styled from "styled-components"
 interface Props {}
 
 const _Blockquote = styled.blockquote`
-  background: #efefef;
+  /* background: #efefef; */
   border-left: 4px solid #afafaf;
   padding: 12px;
   font-weight: lighter;

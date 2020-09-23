@@ -33,7 +33,7 @@ const Page: React.FC<Props> = () => {
       image: file(relativePath: { eq: "squad.jpg" }) {
         id
         childImageSharp {
-          fluid(maxWidth: 800) {
+          fluid(maxWidth: 800, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -46,6 +46,7 @@ const Page: React.FC<Props> = () => {
       <Heading>Unsere Musikkapelle</Heading>
       <Box align="center" justify="center" width="100%">
         <Image
+          fadeIn
           fluid={data.image.childImageSharp.fluid}
           style={{ width: "100%", height: "auto", maxWidth: 800 }}
           alt="Gruppenbild auf dem Weinberg Markelsheim"

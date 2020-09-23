@@ -18,6 +18,16 @@ collections:
       - { name: date, label: Datum, widget: datetime }
       - { name: location, label: Ort }
 
+  - name: events
+    label: Termine
+    folder: content/events
+    create: true
+    fields:
+      - { name: path, label: Slug }
+      - { name: title, label: Titel }
+      - { name: date, label: Datum, widget: datetime }
+      - { name: body, label: Text, widget: markdown }
+
   - name: front
     label: Startseite
     folder: content/front

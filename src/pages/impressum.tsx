@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Heading, Paragraph } from "../components"
+import { Blockquote, Heading, Paragraph } from "../components"
 import { MainLayout } from "../layouts"
 
 interface Props {}
@@ -78,7 +78,10 @@ const Page: React.FC<Props> = () => {
         können wir Ihre Anfrage nicht oder allenfalls eingeschränkt beantworten.
       </Paragraph>
       <Paragraph>
-        Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b) DSGVO.
+        <Blockquote>
+          Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b)
+          DSGVO.
+        </Blockquote>
       </Paragraph>
       <Paragraph>
         Ihre Daten werden gelöscht, sofern Ihre Anfrage abschließend beantwortet
